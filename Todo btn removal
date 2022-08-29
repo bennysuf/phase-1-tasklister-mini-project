@@ -1,0 +1,20 @@
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector('form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    createTodo(e.target['new-task-description'].value);
+  })
+  
+});
+
+function createTodo(todo) {
+ const p = document.createElement('p');
+ const color = document.createElement('select');
+ const btn = document.createElement('button');
+ btn.textContent = 'x';
+ p.textContent = `${todo} `;
+ p.appendChild(btn).addEventListener('click', function () {
+   btn.parentNode.remove();
+  })
+ document.querySelector('#list').appendChild(p);
+   
+}
